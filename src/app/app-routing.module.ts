@@ -7,7 +7,7 @@ import { HomeProductoComponent } from './modules/productos/pages/home-producto/h
 const routes: Routes = [
   {
   path:'',
-  component: ProductoPageComponent,
+  component: DocumentsComponent,
   loadChildren:() => import('./modules/productos/productos.module').then(m => m.ProductosModule)
   }
 ];
