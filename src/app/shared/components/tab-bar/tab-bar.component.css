@@ -5,8 +5,8 @@
   padding: 10px;
   margin: 0 20px; /* Margen alrededor del tab bar */
   width: calc(100% - 40px); /* Restar el margen de 20px a cada lado */
-  border: 2px solid #082d49; /* Negro */
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  /*border: 2px solid #082d49; /* Negro */
+  /*box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);*/
 }
 
 .tab {
