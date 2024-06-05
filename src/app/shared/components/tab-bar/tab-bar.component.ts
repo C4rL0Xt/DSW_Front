@@ -16,4 +16,5 @@ export class TabBarComponent {
     this.activeTab = tab;
     this.tabSelected.emit(tab.route);
   }
+  
 }

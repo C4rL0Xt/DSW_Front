@@ -2,6 +2,7 @@
 .layout {
   display: flex;
   flex-direction: row;
+  background-color: #0c466e;
 }
 
 .input-container {
