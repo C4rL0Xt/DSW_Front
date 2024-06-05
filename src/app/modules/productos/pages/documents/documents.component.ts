@@ -6,7 +6,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './documents.component.html',
   styleUrl: './documents.component.css',
 })
+
+
 export class DocumentsComponent implements OnInit {
+
+  forms= [{
+    label: 'nueva solicitud',
+    input: 'nueva_sol',
+    type: 'date'
+  },{
+    label: 'borrar oslicitud',
+    input: 'nombre_sol',
+    type: 'string'
+  }
+  ];
+
   selectedTab: number = 1;
 
   selectOption: string = '';
@@ -49,6 +63,8 @@ export class DocumentsComponent implements OnInit {
       plazoEntrega: ['', Validators.required],
       fecha: ['', [Validators.required, Validators.min(0)]],
       identificacion: ['', Validators.required],
+      nombre_sol: ['',Validators.required],
+      nueva_sol: ['', Validators.required]
     });
   }
 
