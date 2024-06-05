@@ -2,11 +2,11 @@
 .layout {
   display: flex;
   flex-direction: row;
-  background-color: #0c466e;
+  background-color: #ffffff;
 }
 
 .input-container {
-  margin-bottom: 23px; /* Establece el espacio entre los inputs */
+  margin-bottom: 21px; /* Establece el espacio entre los inputs */
 }
 
 .main-content {
@@ -58,13 +58,10 @@
 
 .form-container {
   flex: 1;
-  max-width: 300px;
-  /* Limita el ancho del formulario */
-  padding: 20px;
+  max-width: 270px; /*Es el ancho del form*/
+  padding: 20px; /*Es el ancho del espacio donde va el form*/
   border-radius: 12px;
-  /* Bordes redondeados */
-  color: #333;
-  /* Texto oscuro */
+  background-color: #f9f9f9;
 }
 
 .empty-space {
@@ -73,7 +70,6 @@
 }
 
 .select-design {
-
   /*border-bottom: 2px solid #00bcd4;  Borde inferior */
   background-color: white;
   /* Fondo transparente */
@@ -89,29 +85,21 @@
   overflow-x: auto;
   margin: 25px auto;
   width: 70%;
-  /* Ancho completo para la tabla */
-  margin-top: 20px;
-  /* Espacio entre la tabla y el formulario */
+  margin-top: 1px; /*Espacio que deja arriba*/
   background: #F8F9F9;
-  /* Fondo suave */
   border-radius: 12px;
-  /* Bordes redondeados */
   text-align: center;
 }
 
 
 .table-title {
   font-size: 1.1em;
-  /* Ajusta el tamaño de la fuente según sea necesario */
   color: #0c466e;
-  /* Color del título */
   margin-bottom: 10px;
-  /* Espacio debajo del título */
 }
 
 .table {
-  width: calc(100% - 40px);
-  /* Ajusta el ancho de la tabla restando el padding del contenedor */
+  width: calc(100% - 40px); /* Ajusta el ancho de la tabla restando el padding del contenedor */
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -122,7 +110,7 @@ form {
 }
 
 div {
-  margin-bottom: 15px;
+  margin-bottom: 0px; /* espacio entre inputs cuando sale mensaje abajo*/
 }
 
 label {
@@ -134,22 +122,15 @@ label {
 input,
 textarea,
 select {
-  padding: 9px;
-  /* Aumentar el padding */
+  padding: 10px;/*ancho de los inputs*/
   font-size: 15px;
-  width: 85%;
-  box-sizing: border-box;
-  /* Asegura que el padding no desborde el contenedor */
-  border: 1px solid #bbb;
-  /* Borde de los campos */
-  border-radius: 8px;
-  /* Bordes redondeados */
-  background-color: #ffffff;
-  /* Fondo de los campos */
+  width: 90%; /*Largo de los inputs*/
+  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
+  border: 1px solid #bbb; /* Borde de los campos */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo de los campos */
   color: #333;
-  /* Color del texto */
-  transition: border-color 0.3s, box-shadow 0.3s;
-  /* Transición suave */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
 }
 
 input:focus,
@@ -165,21 +146,19 @@ select:focus {
 
 button {
   padding: 11px;
+  width: 42%;
   font-size: 15px;
-  background-color: #52BE80;
-  /* Color de fondo */
+  background-color: #4db04a;
   color: #ffffff;
-  /* Color del texto */
   border: none;
   border-radius: 8px;
-  /* Bordes redondeados */
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   /* Transición suave */
 }
 
 button:hover {
-  background-color: #1E8449;
+  background-color: #409b5e;
   /* Color al pasar el mouse */
   transform: translateY(-2px);
   /* Efecto de levantamiento */
@@ -273,10 +252,27 @@ tbody tr:hover {
   /* Fondo al pasar el mouse */
 }
 
+p{
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+
 /* Barra de deslizamiento*/
 
 .table-scroll {
   max-height: 420px;
   overflow-y: auto;
   border-radius: 10px;
+}
+
+
+/*INPUTS*/
+
+input::placeholder {
+  color: #cccaca;
+}
+
+.input-container div{
+  color: rgb(235, 82, 82);
+  font-size: 13.5px; /*Tamaño de mensaje de requerido*/
 }

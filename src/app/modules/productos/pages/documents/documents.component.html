@@ -26,55 +26,20 @@
   <div class="form-and-empty">
 
     <div class="form-container">
-      <for [formGroup]="crearSolicitudForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="crearSolicitudForm" (ngSubmit)="onSubmit()">
+        <p>Datos de la solicitud</p>
         <div class="input-container">
-          <label for="id_solicitud">ID Solicitud</label>
           <input id="id_solicitud" formControlName="id_solicitud" />
         </div>
 
-        <div class="input-container">
-          <label for="nombreProducto">Nombre del Producto</label>
-          <input id="nombreProducto" formControlName="nombreProducto" />
-          <div
-            *ngIf="crearSolicitudForm.get('nombreProducto')?.invalid && crearSolicitudForm.get('nombreProducto')?.touched">
-            Nombre es requerido
+        <div class="input-container" *ngFor="let form of forms">
+          <input id="{{form.input}}" formControlName="{{form.input}}" type="{{form.type}}" placeholder="{{form.label}}" />   
+          <div *ngIf="crearSolicitudForm.get(form.input)?.invalid && crearSolicitudForm.get(form.input)?.touched">
+              {{form.label}} es requerido(a)
           </div>
-        </div>
-
-        <div class="input-container">
-          <label for="cantidadRequerida">Cantidad requerida</label>
-          <input id="cantidadRequerida" formControlName="cantidadRequerida" />
-          <div
-            *ngIf="crearSolicitudForm.get('cantidadRequerida')?.invalid && crearSolicitudForm.get('nombreProducto')?.touched">
-            Cantidad es requerida
-          </div>
-        </div>
-        <div class="input-container">
-          <label for="plazoEntrega">Plazo de entrega</label>
-          <input id="plazoEntrega" formControlName="plazoEntrega" type="date"/>
-          <div
-            *ngIf="crearSolicitudForm.get('plazoEntrega')?.invalid && crearSolicitudForm.get('nombreProducto')?.touched">
-            Plazo es requerido
-          </div>
-        </div>
-        <div class="input-container">
-          <label for="fecha">Fecha </label>
-          <input id="fecha" formControlName="fecha" type="date"/>
-          <div *ngIf="crearSolicitudForm.get('fecha')?.invalid && crearSolicitudForm.get('fecha')?.touched">
-            Fecha es requerido
-          </div>
-        </div>
-
-        <div class="input-container">
-          <label for="identificacion">Identificacion</label>
-          <input id="identificacion" formControlName="identificacion" />
-          <div
-            *ngIf="crearSolicitudForm.get('identificacion')?.invalid && crearSolicitudForm.get('identificacion')?.touched">
-            Identificacion es requerida
-          </div>
-        </div>
-        <button type="submit" [disabled]="crearSolicitudForm.valid">Agregar solicitud</button>
-      </for>
+      </div>
+        <button type="submit" [disabled]="crearSolicitudForm.valid">Agregar</button>
+      </form>
     </div>
 
     <div class="table-container">

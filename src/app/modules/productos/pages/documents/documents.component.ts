@@ -6,7 +6,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './documents.component.html',
   styleUrl: './documents.component.css',
 })
+
+
 export class DocumentsComponent implements OnInit {
+
+  forms= [{
+    label: 'Nombre del producto',
+    input: 'nombreProducto',
+    type: 'string'
+  },
+  {
+    label: 'Cantidad requerida',
+    input: 'cantidadRequerida',
+    type: 'string'
+  },
+  {
+    label: 'Plazo de entrega',
+    input: 'plazoEntrega',
+    type: 'date'
+  },
+  {
+    label: 'Fecha',
+    input: 'fecha',
+    type:  'date'
+  },
+  {
+    label: 'Identificacion',
+    input: 'identificacion',
+    type:  'string'
+  }
+  ];
+
   selectedTab: number = 1;
 
   selectOption: string = '';
@@ -49,6 +79,8 @@ export class DocumentsComponent implements OnInit {
       plazoEntrega: ['', Validators.required],
       fecha: ['', [Validators.required, Validators.min(0)]],
       identificacion: ['', Validators.required],
+      nombre_sol: ['',Validators.required],
+      nueva_sol: ['', Validators.required]
     });
   }
 
