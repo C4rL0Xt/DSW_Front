@@ -38,7 +38,7 @@
               {{form.label}} es requerido(a)
           </div>
       </div>
-        <button type="submit" [disabled]="crearSolicitudForm.valid">Agregar</button>
+        <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
       </form>
     </div>
 
@@ -61,77 +61,29 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
+              <tr *ngFor="let solicitud of solicitudes">
+                <td>{{ solicitud.id_solicitud }}</td>
+                <td>{{ solicitud.nombreProducto }}</td>
+                <td>{{ solicitud.cantidadRequerida }}</td>
+                <td>{{ solicitud.plazoEntrega }}</td>
+                <td>{{ solicitud.fecha }}</td>
+                <td>{{ solicitud.identificacion }}</td>
               </tr>
               <tr>
                 <td>Melani</td>
+                <td>Adulta</td>
                 <td>Melani</td>
+                <td>Adulta</td>
                 <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
+                <td>Adulta</td>
               </tr>
               <tr>
                 <td>Melani</td>
+                <td>Adulta</td>
                 <td>Melani</td>
+                <td>Adulta</td>
                 <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
-                <td>Melani</td>
+                <td>Adulta</td>
               </tr>
             </tbody>
           </table>

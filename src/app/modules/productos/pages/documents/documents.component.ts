@@ -79,8 +79,6 @@ export class DocumentsComponent implements OnInit {
       plazoEntrega: ['', Validators.required],
       fecha: ['', [Validators.required, Validators.min(0)]],
       identificacion: ['', Validators.required],
-      nombre_sol: ['',Validators.required],
-      nueva_sol: ['', Validators.required]
     });
   }
 
