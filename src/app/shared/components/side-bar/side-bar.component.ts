@@ -8,6 +8,10 @@ import { ElementRef } from '@angular/core';
 })
 export class SideBarComponent implements OnInit{
 
+  //? TEST DE ROL
+  userRole: string = 'almacen';
+  menuOptions: any[] = [];
+
   constructor(private elementRef: ElementRef){}
 
   ngOnInit() {
@@ -20,5 +24,22 @@ export class SideBarComponent implements OnInit{
         menuItem.classList.add('active');
       });
     });
+
+    this.setMenuItemsBasedOnRole();
+  }
+
+  setMenuItemsBasedOnRole(){
+    if(this.userRole === 'almacen'){
+      this.menuOptions = [
+        {label: 'Inicio', route: '/almacen/inicio', image:'assets/icons/home.svg'},
+        {label: 'Producto', route: '/almacen/productos',image: 'assets/icons/capsule.svg'},
+        {label: 'Documentos', route: '/almacen/documentos', image: 'assets/icons/guia.svg'}
+      ];
+    }else if (this.userRole === 'compra'){
+      this.menuOptions = [
+        {label: 'Inicio', route: '/compra/inicio'},
+        {label: 'Cotizaciones', route: '/compra/cotizacion'}
+      ]
+    }
   }
 }

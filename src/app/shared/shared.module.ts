@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { TabBarComponent } from './components/tab-bar/tab-bar.component';
     TabBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports:[
     HeaderUserComponent,
