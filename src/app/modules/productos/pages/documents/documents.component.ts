@@ -31,7 +31,7 @@ export class DocumentsComponent implements OnInit {
     type:  'date'
   },
   {
-    label: 'Identificacion',
+    label: 'Id Asistente',
     input: 'identificacion',
     type:  'string'
   }
@@ -99,19 +99,32 @@ export class DocumentsComponent implements OnInit {
         id_solicitud: this.crearSolicitudForm.get('id_solicitud')?.value,
       };
       this.solicitudes.push(solicitudData);
-      console.log('Solicitud creada con exito', solicitudData);
-      this.lastSolicitudId = solicitudData.id_producto;
-      this.generateSolicitudId();
+      console.log('Solicitud creada con éxito', solicitudData);
+
+      // Actualizar el último ID de solicitud
+      const currentIdNumber = parseInt(this.lastSolicitudId.slice(3)) + 1;
+      this.lastSolicitudId = 'SOL' + currentIdNumber.toString().padStart(3, '0');
+      
+      // Generar nuevo ID de solicitud y vaciar el formulario
       this.crearSolicitudForm.reset();
-      this.crearSolicitudForm.get('id_solicitud')?.setValue(this.lastSolicitudId);
+      this.generateSolicitudId();
     } else {
-      console.log('formulario invalido');
+      console.log('Formulario inválido');
     }
+  }
+  
+  selectRow(solicitud: any): void {
+    this.crearSolicitudForm.patchValue({
+      id_solicitud: solicitud.id_solicitud,
+      nombreProducto: solicitud.nombreProducto,
+      cantidadRequerida: solicitud.cantidadRequerida,
+      plazoEntrega: solicitud.plazoEntrega,
+      fecha: solicitud.fecha,
+      identificacion: solicitud.identificacion,
+    });
   }
 
   onTabSelected(route: string): void {
-    // Navigate to the selected route
-    // This can be done using Angular Router, for example
     this.selectOption = route;
     console.log(`Navigating to ${route}`);
   }

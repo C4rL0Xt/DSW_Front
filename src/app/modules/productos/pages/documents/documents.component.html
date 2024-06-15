@@ -33,67 +33,107 @@
         </div>
 
         <div class="input-container" *ngFor="let form of forms">
+          <label *ngIf="form.type === 'date'" for="{{form.input}}" class="input-label">{{form.label}}</label>
           <input id="{{form.input}}" formControlName="{{form.input}}" type="{{form.type}}"
             placeholder="{{form.label}}" />
           <div *ngIf="crearSolicitudForm.get(form.input)?.invalid && crearSolicitudForm.get(form.input)?.touched">
             {{form.label}} es requerido(a)
           </div>
-<<<<<<< HEAD
-      </div>
-        <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
-=======
         </div>
-        <button type="submit" [disabled]="crearSolicitudForm.valid">Agregar</button>
->>>>>>> 526b2b8 (Actualizando login)
+        <div class="button-container">
+          <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
+          <button type="submit" [disabled]="crearSolicitudForm.invalid">Actualizar</button>
+        </div>
+
       </form>
     </div>
 
-    <div class="table-container">
+    <div class="container">
+      <div class="table-container">
 
-      <h2 class="table-title">Solicitudes de compra</h2>
+        <h2 class="table-title">Solicitudes de compra</h2>
 
-      <div class="empty-space">
-        <div class="table-scroll">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID Solicitud</th>
-                <th>Producto</th>
-                <th>Cantidad requerida</th>
-                <th>Plazo entrega</th>
-                <th>Fecha</th>
-                <th>Identificacion</th>
-              </tr>
-            </thead>
+        <div class="empty-space">
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID Solicitud</th>
+                  <th>Producto</th>
+                  <th>Cantidad requerida</th>
+                  <th>Plazo entrega</th>
+                  <th>Fecha</th>
+                  <th>Identificacion</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr *ngFor="let solicitud of solicitudes">
-                <td>{{ solicitud.id_solicitud }}</td>
-                <td>{{ solicitud.nombreProducto }}</td>
-                <td>{{ solicitud.cantidadRequerida }}</td>
-                <td>{{ solicitud.plazoEntrega }}</td>
-                <td>{{ solicitud.fecha }}</td>
-                <td>{{ solicitud.identificacion }}</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Adulta</td>
-                <td>Melani</td>
-                <td>Adulta</td>
-                <td>Melani</td>
-                <td>Adulta</td>
-              </tr>
-              <tr>
-                <td>Melani</td>
-                <td>Adulta</td>
-                <td>Melani</td>
-                <td>Adulta</td>
-                <td>Melani</td>
-                <td>Adulta</td>
-              </tr>
-            </tbody>
-          </table>
+              <tbody>
+                <tr *ngFor="let solicitud of solicitudes" (click)="selectRow(solicitud)">
+                  <td>{{ solicitud.id_solicitud }}</td>
+                  <td>{{ solicitud.nombreProducto }}</td>
+                  <td>{{ solicitud.cantidadRequerida }}</td>
+                  <td>{{ solicitud.plazoEntrega }}</td>
+                  <td>{{ solicitud.fecha }}</td>
+                  <td>{{ solicitud.identificacion }}</td>
+                </tr>
+                <tr>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                </tr>
+                <tr>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                </tr>
+                <tr>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                </tr>
+                <tr>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                </tr>
+                <tr>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                  <td>Melani</td>
+                  <td>Adulta</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+
+      </div>
+      <div class="form-update">
+        <form>
+          <p>Actualizacion de solicitud</p>
+          <div >
+            <label for="id_producto" class="input-label">Cantidad</label>
+            <input class="input-act" id="id_producto"/>
+          </div>
+          <div class="button-container">
+            <button>Actualizar</button>
+          </div>
+  
+        </form>
       </div>
     </div>
 
