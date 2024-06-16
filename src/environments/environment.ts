@@ -7,9 +7,10 @@ export const environment = {
   response_type: 'code',
   response_mode: 'form_post',
   code_challenge_method: 'S256',
-  code_challenge: 'MzyGln8VXNYrQHKO4YRTqIk8hfREl1j8-Rkh1mJX0TQ',
-  code_verifier: 'DAFMdMMeGHt3UPsL31eaZ1vsbwbvc5rfc9Mvz3iYMQM',
+  code_challenge: 'pH6qUcTfXXXNUVnjHvKmdnmm1xWpX9HVQ4OvasLCEkc',
+  code_verifier: 'rZZKTypnNAsybkGtDqCddBuISIb4CXxmxrVfjGNYWmM',
   token_url: 'http://localhost:8100/oauth2/token',
   grant_type: 'authorization_code',
-  resource_url: 'http://localhost:8080/resource/;'
+  resource_url: 'http://localhost:8080/resource/',
+  logout_url: 'http://localhost:8100/logout',
 };

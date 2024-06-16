@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(btoa('client:secret'))
+    //console.log(btoa('client:secret'))
   }
 }

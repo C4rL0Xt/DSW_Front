@@ -8,11 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthorizedComponent implements OnInit {
   code = '';
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((data) => {
+    /*this.activatedRoute.queryParams.subscribe((data) => {
       this.code = data['code'];
-    });
+    });*/
   }
 }

@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ResourceService } from '../../../auth/services/resource-service/resource.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  selector: 'app-admin-page',
+  templateUrl: './admin-page.component.html',
+  styleUrl: './admin-page.component.css'
 })
-export class HomePageComponent implements OnInit{
-
+export class AdminPageComponent implements OnInit{
   message = '';
 
   constructor(private resourceService: ResourceService){
@@ -15,7 +14,7 @@ export class HomePageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.resourceService.user().subscribe(data => {
+      this.resourceService.admin().subscribe(data => {
         this.message = data.message;
       },
     err => {
