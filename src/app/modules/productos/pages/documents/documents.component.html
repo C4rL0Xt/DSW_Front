@@ -27,7 +27,7 @@
 
     <div class="form-container">
       <form [formGroup]="crearSolicitudForm" (ngSubmit)="onSubmit()">
-        <p>Datos de la solicitud</p>
+        <h6>Datos de la solicitud</h6>
         <div class="input-container">
           <input id="id_solicitud" formControlName="id_solicitud" />
         </div>
@@ -40,15 +40,11 @@
             {{form.label}} es requerido(a)
           </div>
         </div>
-<<<<<<< HEAD
         <div class="button-container">
           <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
-          <button type="submit" [disabled]="crearSolicitudForm.invalid">Actualizar</button>
+          <button type="button" (click)="onCancel()">Cancelar</button>
         </div>
 
-=======
-        <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
->>>>>>> abdacef (Login casi funcional adaptado)
       </form>
     </div>
 
@@ -57,7 +53,6 @@
 
         <h2 class="table-title">Solicitudes de compra</h2>
 
-        <div class="empty-space">
           <div class="table-scroll">
             <table class="table">
               <thead>
@@ -123,20 +118,29 @@
               </tbody>
             </table>
           </div>
-        </div>
-
+        
       </div>
       <div class="form-update">
-        <form>
-          <p>Actualizacion de solicitud</p>
-          <div >
-            <label for="id_producto" class="input-label">Cantidad</label>
-            <input class="input-act" id="id_producto"/>
+        <form [formGroup]="updateSolicitudForm" (ngSubmit)="onUpdateSubmit()">
+          <div class="container-solo-labels-actualizacion">
+            <h6>Actualizacion de datos</h6>
+            <label>Id de Solicitud: {{ updateSolicitudForm.get('id_solicitud')?.value }}</label>
+            <label>Producto: {{ updateSolicitudForm.get('nombreProducto')?.value }}</label>
+            <div class="button-containerAct">
+              <button type="submit" [disabled]="updateSolicitudForm.invalid">Actualizar</button>
+              <button type="button" (click)="onUpdateCancel()">Cancelar</button>
+            </div>
           </div>
-          <div class="button-container">
-            <button>Actualizar</button>
+          <div class="container-solo-form">
+            <div class="input-container">
+              <label for="cantidadRequerida">Cantidad</label>
+              <input id="cantidadRequerida" formControlName="cantidadRequerida" />
+            </div>
+            <div class="input-container">
+              <label for="plazoEntrega">Fecha de Entrega</label>
+              <input id="plazoEntrega" formControlName="plazoEntrega" type="date"/>
+            </div>
           </div>
-  
         </form>
       </div>
     </div>

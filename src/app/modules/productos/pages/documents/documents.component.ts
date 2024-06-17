@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+// Define the interface for solicitudes
+interface Solicitud {
+  id_solicitud: string;
+  nombreProducto: string;
+  cantidadRequerida: string;
+  plazoEntrega: string;
+  fecha: string;
+  identificacion: string;
+}
+
 @Component({
   selector: 'app-documents',
   templateUrl: './documents.component.html',
@@ -65,6 +75,7 @@ export class DocumentsComponent implements OnInit {
 
   /* Manejo de formulario */
   crearSolicitudForm: FormGroup = new FormGroup({});
+  updateSolicitudForm: FormGroup = new FormGroup({});
 
   //categories = ['Medicamento','Suplemento','Cosmetico'];
   //forms = ['Tableta','Capsula','Liquido','Polvo'];
@@ -79,6 +90,13 @@ export class DocumentsComponent implements OnInit {
       plazoEntrega: ['', Validators.required],
       fecha: ['', [Validators.required, Validators.min(0)]],
       identificacion: ['', Validators.required],
+    });
+
+    this.updateSolicitudForm = this.fb.group({
+      id_solicitud: [{ value: '', disabled: true }],
+      nombreProducto: [{ value: '', disabled: true }],
+      cantidadRequerida: ['', Validators.required],
+      plazoEntrega: ['', Validators.required],
     });
   }
 
@@ -113,15 +131,41 @@ export class DocumentsComponent implements OnInit {
     }
   }
   
+  onCancel(): void {
+    this.crearSolicitudForm.reset();
+    this.generateSolicitudId();
+  }
+
   selectRow(solicitud: any): void {
-    this.crearSolicitudForm.patchValue({
+    this.updateSolicitudForm.patchValue({
       id_solicitud: solicitud.id_solicitud,
       nombreProducto: solicitud.nombreProducto,
       cantidadRequerida: solicitud.cantidadRequerida,
       plazoEntrega: solicitud.plazoEntrega,
-      fecha: solicitud.fecha,
-      identificacion: solicitud.identificacion,
     });
+  }
+
+  onUpdateSubmit(): void {
+    if (this.updateSolicitudForm.valid) {
+      const updatedValues = this.updateSolicitudForm.value;
+
+      const solicitud = this.solicitudes.find((s: Solicitud) => s.id_solicitud === this.updateSolicitudForm.get('id_solicitud')?.value);
+      if (solicitud) {
+        // Only update the fields that are present in the update form
+        Object.keys(updatedValues).forEach(key => {
+          if (updatedValues[key] !== '' && updatedValues[key] !== null) {
+            solicitud[key as keyof Solicitud] = updatedValues[key];
+          }
+        });
+        console.log('Solicitud actualizada con éxito', solicitud);
+      }
+    } else {
+      console.log('Formulario de actualización inválido');
+    }
+  }
+
+  onUpdateCancel(): void {
+    this.updateSolicitudForm.reset();
   }
 
   onTabSelected(route: string): void {
