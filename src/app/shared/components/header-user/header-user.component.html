@@ -3,10 +3,10 @@
     <a routerLink="/">Home</a>
   </div>
   <div>
-    <a routerLink="/user">User</a>
+    <a routerLink="/user" *ngIf="isLogged">User</a>
   </div>
   <div>
-    <a routerLink="/admin">Admin</a>
+    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
   </div>
   <div class="header_notification">
     <button class="header_notificacion_btn"><img src="assets\icons\empty_notification.svg"
@@ -17,9 +17,9 @@
     <img src="assets\icons\account.svg">
   </div>
   <div class="header_logout">
-    <button type="button" (click)="onLogin()">Login</button>
+    <button type="button" (click)="onLogin()" *ngIf="!isLogged">Login</button>
   </div>
-  <div class="header_logout" (click)="onLogout()">
+  <div class="header_logout" (click)="onLogout()" *ngIf="isLogged">
     <img src="assets\icons\logout.svg">
     Logout
   </div>

@@ -12,6 +12,7 @@ export class LogoutPageComponent implements OnInit {
   constructor(
     private router: Router,
     private tokenService: TokenService
+
   ) {
 
   }
