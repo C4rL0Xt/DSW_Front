@@ -52,20 +52,12 @@ export class DocumentsComponent implements OnInit {
   selectOption: string = '';
   tabs = [
     {
-      label: 'Crear Solicitud',
+      label: 'Solicitudes de compra',
       route: '/documents/crearSolicitud',
     },
     {
-      label: 'Modificar solicitud',
-      route: '/documents/modificarSolicitud',
-    },
-    {
-      label: 'Crear Hoja',
+      label: 'Hojas de ingreso',
       route: '/documents/crearHoja',
-    },
-    {
-      label: 'Modificar Hoja',
-      route: '/documents/modificarHoja',
     },
     {
       label: 'Generar guia',
