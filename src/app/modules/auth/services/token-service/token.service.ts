@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../../../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 const ACCESS_TOKEN = 'access_token';
 const REFRESH_TOKEN = 'refresh_token';
 const CODE_VERIFIER = 'code_verifier';
+const ROLE = 'roles';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  constructor() { }
+  private accessToken: string | null = null;
+  private rol: string;
+
+
+  constructor() {
+    this.accessToken = localStorage.getItem(ACCESS_TOKEN);
+    this.extractRolFromToken();
+  }
 
   setTokens(access_token: string, refresh_token: string): void {
     localStorage.removeItem(ACCESS_TOKEN);
@@ -59,6 +68,7 @@ export class TokenService {
   }
 
 
+
   setVerifier(code_verifier: string): void {
     if (localStorage.getItem(CODE_VERIFIER)) {
       this.deleteVerifier();
@@ -77,4 +87,28 @@ export class TokenService {
   deleteVerifier(): void {
     localStorage.removeItem(CODE_VERIFIER);
   }
+
+  private extractRolFromToken(): void {
+    if (this.accessToken) {
+      const token = this.accessToken;
+      const payload = token.split('.')[1];
+      const payloadDecoded = atob(payload);
+      const values = JSON.parse(payloadDecoded);
+      this.rol = values.roles || [];
+    } else {
+      this.rol = ''
+    }
+  }
+
+
+  setRolUser(r: string): void {
+    localStorage.removeItem(ROLE)
+    localStorage.setItem(ROLE, r);
+  }
+
+  getRolUser(): string {
+    return localStorage.getItem(ROLE);
+  }
+
+
 }

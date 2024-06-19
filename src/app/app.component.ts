@@ -20,10 +20,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*
     this.router.events.pipe(
       filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.menu.getLogged();
     });
+    */
   }
 }

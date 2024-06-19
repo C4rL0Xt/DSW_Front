@@ -30,12 +30,28 @@ export class AuthPageComponent implements OnInit {
     this.authService.getToken(code, code_verifier).subscribe(
       data => {
         this.tokenService.setTokens(data.access_token, data.refresh_token);
-        this.router.navigate(['']);
+        const rol = this.extractRolFromToken(data.access_token);
+        this.tokenService.setRolUser(rol);
+        this.router.navigate(['/home']);
       },
       err => {
         console.log(err);
       }
     );
+  }
+
+  extractRolFromToken(tok: string): string {
+    if (tok) {
+      const token = tok;
+      const payload = token.split('.')[1];
+      const payloadDecoded = atob(payload);
+      const values = JSON.parse(payloadDecoded);
+      const rol = values.roles || [];
+
+      return rol;
+    } else {
+      return null;
+    }
   }
 
 

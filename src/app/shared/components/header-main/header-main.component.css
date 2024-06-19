@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+:host::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('https://www.bbraun.co.uk/content/dam/b-braun/de/website/unternehmen/nachhaltigkeit/report-excerpts/Chapter1_Cover_Sustainability_Report_2020.jpg.transform/650/image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.5;
+  /* Ajusta este valor para cambiar la opacidad */
+  z-index: -1;
+}
+
+:host::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Color negro con opacidad del 50% */
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.login-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #28a745;
+  /* Verde claro */
+  color: white;
+  transform: scale(1.05);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
+  /* Centra el contenido de la sección */
+}
+
+.welcome-container {
+  max-width: 800px;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 48px;
+  /* Tamaño de fuente más grande */
+  font-weight: bold;
+  /* Negrita */
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  /* Quita los márgenes por defecto */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Fuente llamativa */
+}
+
+.welcome-subtext {
+  color: white;
+  font-size: 24px;
+  /* Tamaño de fuente para el subtítulo */
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin: 10px 0 0 0;
+  /* Margen superior */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Fuente para subtítulo */
+}

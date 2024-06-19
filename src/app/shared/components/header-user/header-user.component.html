@@ -1,12 +1,12 @@
 <div class="header">
   <div>
-    <a routerLink="/">Home</a>
+    <a routerLink="/main">Home</a>
   </div>
   <div>
-    <a routerLink="/user" *ngIf="isLogged">User</a>
+    <a routerLink="/home/user" *ngIf="isLogged">User</a>
   </div>
   <div>
-    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
+    <a routerLink="/home/admin" *ngIf="isAdmin">Admin</a>
   </div>
   <div class="header_notification">
     <button class="header_notificacion_btn"><img src="assets\icons\empty_notification.svg"
@@ -16,12 +16,37 @@
     <div class="user_name">Carlos Daniel Espinoza Ramirez</div>
     <img src="assets\icons\account.svg">
   </div>
-  <div class="header_logout">
-    <button type="button" (click)="onLogin()" *ngIf="!isLogged">Login</button>
-  </div>
-  <div class="header_logout" (click)="onLogout()" *ngIf="isLogged">
-    <img src="assets\icons\logout.svg">
-    Logout
+
+  <div class="header_logout" (click)="onLogout()">
+    <button><img src="assets\icons\logout.svg">
+      Logout</button>
   </div>
 
 </div>
+
+
+<!--header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+
+
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2">Login</button>
+        <button type="button" class="btn btn-warning">Sign-up</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+      </ul-->
