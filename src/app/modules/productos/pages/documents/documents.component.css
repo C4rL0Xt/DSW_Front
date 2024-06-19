@@ -9,18 +9,6 @@
   margin-bottom: 21px; /* Establece el espacio entre los inputs */
 }
 
-.input-act {
-  padding: 10px;/*ancho de los inputs*/
-  font-size: 15px;
-  width: 20%; /*Largo de los inputs*/
-  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
-  border: 1px solid #bbb; /* Borde de los campos */
-  border-radius: 8px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo de los campos */
-  color: #333;
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
-}
-
 .main-content {
   flex: 1;
   display: flex;
@@ -34,15 +22,12 @@
 .tab-container {
   display: flex;
   flex-direction: column;
-  margin: 20px 40px;
-  /* Margen alrededor del tab-container */
+  margin: 20px 40px; /* Margen alrededor del tab-container */
 }
 
 .tab-content {
   padding: 20px;
   background: #ffffff;
-  /* Fondo suave */
-  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);*/
   width: calc(100% - 20px);
   /* Restar el margen de 40px a cada lado */
   margin: auto;
@@ -53,23 +38,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/*para el forms y tabla*/
-
+/*Contenedor de todo*/
 .form-and-empty {
   display: flex;
   width: 100%;
-  margin-bottom: 20px; /* Espacio entre el formulario y la tabla */
-}
-
-.container-table-update{
-  overflow-x: auto;
-  margin: 25px auto;
-  width: 70%;
-  margin-top: 1px; /*Espacio que deja arriba*/
-  margin-bottom: 300px;
-  background: #ffffff;
-  border-radius: 12px;
-  text-align: center;
+  background-color: #ffffff;
 }
 
 .form-container {
@@ -81,25 +54,74 @@
   min-height: 560px;
 }
 
-.form-update{
-  margin: 21px auto 0; /*21 px es separacion con el container de arriba*/
+
+/* Container de la actualizacion*/
+.form-update{ 
   width: 100%;
+  margin: 21px auto 0; /* 21 px es separación con el container de arriba */
   background: #f8f8f8;
   border-radius: 12px;
-  min-height: 37%;
+  min-height: 41%;
+  padding: 1px;
+}
+
+/*Container del form en el container de actualizacion*/
+.container-solo-form {
+  flex: 1;
+  max-width: 250px; /*Es el ancho del form*/
+  margin-top: 4%;
+  margin-right: 10%; /*deja espacio a la derecha de este contenedor dentro del otro contenedor
+  padding: 20px; /*Es el ancho del espacio donde va el form*/
+  border-radius: 12px;
+  background-color: #f8f8f8;
+}
+
+.container-solo-form input{
+  padding: 10px;/*ancho de los inputs*/
+  font-size: 15px;
+  width: 80%; /*Largo de los inputs*/
+  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
+  border: 1px solid #bbb; /* Borde de los campos */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo de los campos */
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+/*Container de datos en el container de actualizacion*/
+.container-solo-labels-actualizacion{
+  display: flex;
+  flex-direction: column; /* Organiza los contenedores en una fila */
+  justify-content: space-between; /* Espacio entre los contenedores */
+  min-width: 350px; /*Es el ancho del form*/
+  margin-top: 4%;
+  margin-left: 4%;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  max-height: 200px;
+}
+
+.container-solo-labels-actualizacion label{
+  margin-top: 0%;
+}
+
+h6{
+  font-weight: bold;
+  color: #080505;
+  font-size: 16px;
+  margin-bottom: 30px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
   margin: 25px auto;
   width: 70%;
   margin-top: 1px; /* Espacio que deja arriba */
-  margin-bottom: 50px; /* Ejemplo de ajuste del margen inferior */
+  margin-bottom: 0px;
   background: #ffffff;
   border-radius: 12px;
-  min-height: 560px; /* Altura mínima del contenedor */
+  height: 600px;
 }
 
 .table-container {
@@ -108,6 +130,7 @@
   flex-direction: column;
   overflow-x: auto;
   margin: 10px auto 0; /* Eliminar el margen inferior y ajustar según sea necesario */
+  margin-top: 0px;
   width: 100%;
   background: #f8f8f8;
   border-radius: 12px;
@@ -118,6 +141,7 @@
 .empty-space {
   flex: 1;
   padding: 20px;
+  background-color: #0aff37;
 }
 
 .select-design {
@@ -141,6 +165,11 @@
 }
 
 
+.form-update form {
+  display: flex;
+  flex-direction: row; /* Organiza los contenedores en una fila */
+  justify-content: space-between; /* Espacio entre los contenedores */
+}
 
 form {
   display: flex;
@@ -186,8 +215,8 @@ select:focus {
   margin-top: 20px;
 }
 .button-container button {
-  padding: 11px;
-  width: 42%;
+  padding: 9px;
+  width: 41%;
   font-size: 15px;
   background-color: #45b385cc;
   color: #ffffff;
@@ -195,7 +224,28 @@ select:focus {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  margin-right: 20px; /* Espacio entre los botones */
+  margin-right: 18px; /* Espacio entre los botones */
+}
+
+/*contenedor de botones en la actualizacion*/
+.button-containerAct {
+  display: flex;
+  flex-direction: row; /* Organiza los contenedores en una fila */
+  justify-content: space-between; /* Espacio entre los contenedores */
+  margin-top: 20px;
+  background-color: #f8f8f8;
+}
+.button-containerAct button {
+  padding: 9px;
+  width: 35%;
+  font-size: 15px;
+  background-color: #45b385cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-right: 60px; /* Espacio entre los botones */
 }
 
 .button-container button:hover {
@@ -239,76 +289,76 @@ select:focus {
 
 /*------------------------ PARA LA TABLA -------------------------*/
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
+
 
 h2 {
   text-align: center;
 }
 
 table {
+  border-radius: 10px;
+  background-color: #b4b4b4;
   width: 100%;
-  height: 10%;
-  border-collapse: collapse;
-  margin: 25px auto;
   font-size: 15px;
   text-align: left;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Borde sombreado gris */
+  table-layout: fixed;
   border-radius: 10px;
-  /* Esquinas redondeadas */
-  overflow: hidden;
-  /* Para que las esquinas redondeadas se apliquen correctamente */
-  table-layout: auto; /* Permite que las columnas ajusten su tamaño según el contenido */
-
+  border-collapse: collapse;
+  border-spacing: 10px 5px;
 }
+
 
 thead {
   font-size: 17px;
-  background-color: #26c6da;
   /* Gris muy claro */
   border-bottom: 2px solid #cccccc;
   /* Línea inferior gris */
 }
 
-th,
-td {
+th{
+  max-width: 20px;
   padding: 12px;
-  border-bottom: 1px solid #ddd;
-  overflow: hidden;
+  color: #ffffff;
+
+
 }
 
-th {
-  background-color: #F2F3F4;
-  /* Asegurando que la cabecera tenga el mismo color de fondo */
+td{
+  max-width: 20px;
+  padding: 12px;
+
+  text-overflow: ellipsis; /* Muestra puntos suspensivos si el contenido es demasiado largo */
+  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
-  /* Fondo alterno para filas pares */
+  background-color: #f9f6f6;
 }
 
 tbody tr:hover {
-  background-color: #e0e0e0;
-  /* Fondo al pasar el mouse */
+  background-color: #e0e0e0; /* Fondo al pasar el mouse */
 }
 
-p{
-  color: #080505;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
 
-/* Barra de deslizamiento*/
+
+
+/* Barra de deslizamiento - container de la tabla*/
 
 .table-scroll {
-  max-height: 200px; /*Maxima expansion de la tabla para abajo*/
+  max-height: 250px; /*Maxima expansion de la tabla para abajo*/
   overflow-y: auto;
-  border-radius: 10px;
+  margin-left: 3%;
+  margin-right: 3%;
+  background-color: #f8f8f8;
+  
 }
-
 
 /*INPUTS*/
 

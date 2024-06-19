@@ -27,7 +27,7 @@
 
     <div class="form-container">
       <form [formGroup]="crearSolicitudForm" (ngSubmit)="onSubmit()">
-        <p>Datos de la solicitud</p>
+        <h6>Datos de la solicitud</h6>
         <div class="input-container">
           <input id="id_solicitud" formControlName="id_solicitud" />
         </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="button-container">
           <button type="submit" [disabled]="crearSolicitudForm.invalid">Agregar</button>
-          <button type="submit" [disabled]="crearSolicitudForm.invalid">Actualizar</button>
+          <button type="button" (click)="onCancel()">Cancelar</button>
         </div>
 
       </form>
