@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { TokenService } from '../../../modules/auth/services/token-service/token.service';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
 })
-export class SideBarComponent implements OnInit{
+export class SideBarComponent implements OnInit {
 
   //? TEST DE ROL
-  userRole: string = 'almacen';
+  userRole: string = 'ROL_ALMACEN';
   menuOptions: any[] = [];
 
-  constructor(private elementRef: ElementRef){}
+  constructor(
+    private elementRef: ElementRef,
+    private tokenService: TokenService
+  ) {
+    this.userRole = tokenService.getRolUser();
+    this.setMenuItemsBasedOnRole();
+  }
 
   ngOnInit() {
     const menuItems = this.elementRef.nativeElement.querySelectorAll('.menu-item') as NodeListOf<HTMLElement>;
@@ -25,21 +32,35 @@ export class SideBarComponent implements OnInit{
       });
     });
 
-    this.setMenuItemsBasedOnRole();
+
   }
 
-  setMenuItemsBasedOnRole(){
-    if(this.userRole === 'almacen'){
+  setMenuItemsBasedOnRole() {
+    if (this.userRole === 'ROL_ALMACEN') {
       this.menuOptions = [
-        {label: 'Inicio', route: '/almacen/inicio', image:'assets/icons/home.svg'},
-        {label: 'Producto', route: '/almacen/productos',image: 'assets/icons/capsule.svg'},
-        {label: 'Documentos', route: '/almacen/documentos', image: 'assets/icons/guia.svg'}
+        { label: 'Inicio', route: '/home/almacen/inicio', image: 'assets/icons/hogar.png' },
+        { label: 'Producto', route: '/home/almacen/productos', image: 'assets/icons/medicina.png' },
+        { label: 'Documentos', route: '/home/almacen/documentos', image: 'assets/icons/documentos.png' }
       ];
-    }else if (this.userRole === 'compra'){
+    } else if (this.userRole === 'ROL_COMPRA') {
       this.menuOptions = [
-        {label: 'Inicio', route: '/compra/inicio'},
-        {label: 'Cotizaciones', route: '/compra/cotizacion'}
+        { label: 'Inicio', route: '/home/compra/inicio', image: 'assets/icons/hogar.png' },
+        { label: 'Cotizaciones', route: '/home/compra/cotizacion', image: 'assets/icons/cotizacion.png' },
+        { label: 'Documentos', route: '/home/compra/cotizacion', image: 'assets/icons/documentos.png' }
       ]
+    } else if (this.userRole === 'ROL_VENTA') {
+      this.menuOptions = [
+        { label: 'Clientes', route: '/home/ventas/cliente', image: 'assets/icons/audiencia.png' },
+        { label: 'Pedidos', route: '/home/ventas/productos', image: 'assets/icons/orden.png' },
+        { label: 'Facturas', route: '/home/ventas/facturas', image: 'assets/icons/factura.png' },
+        { label: 'Seguimiento', route: '/home/ventas/seguimiento', image: 'assets/icons/seguimiento.png' }
+      ];
+
+    } else if (this.userRole === 'ROLE_ADMIN') {
+      this.menuOptions = [
+        { label: 'Reportes', route: '/adm/reporte', image: 'assets/icons/informe.png' },
+        { label: 'Gestionar', route: '/adm/gestionar', image: 'assets/icons/gestion.png' }
+      ];
     }
   }
 }

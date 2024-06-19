@@ -4,6 +4,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
 import { RouterModule } from '@angular/router';
+import { HeaderMainComponent } from './components/header-main/header-main.component';
 
 
 
@@ -11,16 +12,18 @@ import { RouterModule } from '@angular/router';
   declarations: [
     SideBarComponent,
     HeaderUserComponent,
-    TabBarComponent
+    TabBarComponent,
+    HeaderMainComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports:[
+  exports: [
     HeaderUserComponent,
     SideBarComponent,
-    TabBarComponent
+    TabBarComponent,
+    HeaderMainComponent
   ]
 })
 export class SharedModule { }

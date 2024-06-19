@@ -10,7 +10,7 @@
 
 .header_user {
   display: flex;
-  /* Usamos flexbox para alinear los elementos */
+
   align-items: center;
 }
 
@@ -45,9 +45,7 @@
   width: 40px;
   height: 40px;
   display: flex;
-  /* Hace que el contenido del botón sea un flexbox */
   justify-content: center;
-  /* Centra horizontalmente el contenido */
   align-items: center;
 }
 
@@ -58,7 +56,6 @@
 
 .header_notificacion_btn:hover .notification_icon {
   filter: brightness(0) saturate(100%) hue-rotate(0deg) invert(0%);
-  /* Cambia el color de la imagen SVG a rojo en el hover */
   filter: invert(47%) sepia(81%) saturate(5674%) hue-rotate(333deg) brightness(104%) contrast(97%);
 }
 
@@ -87,3 +84,14 @@
     margin-top: 10px;
   }
 }
+
+/*
+.header {
+  display: flex;
+}
+
+.section-btn {
+  display: flex;
+  align-items: center;
+}
+  */
