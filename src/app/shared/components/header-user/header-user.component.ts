@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpParams } from '@angular/common/http';
 import { TokenService } from '../../../modules/auth/services/token-service/token.service';
 import * as CryptoJS from 'crypto-js';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -11,7 +12,7 @@ const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567
   templateUrl: './header-user.component.html',
   styleUrl: './header-user.component.css'
 })
-export class HeaderUserComponent implements OnInit {
+export class HeaderUserComponent implements OnInit, OnDestroy {
 
   authorize_uri = environment.authorize_uri;
   logout_url = environment.logout_url;
@@ -28,11 +29,19 @@ export class HeaderUserComponent implements OnInit {
     code_challenge_method: environment.code_challenge_method,
   };
   constructor(
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getLogged();
+
+  }
+
+  ngOnDestroy(): void {
+
+    console.log('me destruyo');
   }
 
   onLogout(): void {

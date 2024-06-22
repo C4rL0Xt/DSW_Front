@@ -1,0 +1,123 @@
+<mat-card class="product-form-card">
+  <mat-card-title>Register Product</mat-card-title>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form-grid">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput formControlName="codigo">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input matInput formControlName="weight" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Presentation</mat-label>
+      <input matInput formControlName="presentation">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">Register Product</button>
+    </div>
+  </form>
+
+  <div class="lot-section">
+    <mat-form-field appearance="fill">
+      <mat-label>Total Quantity</mat-label>
+      <input matInput [(ngModel)]="totalQuantity" type="number">
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="generateLots()">Generate Lots</button>
+  </div>
+
+  <div *ngFor="let lot of lots; let i = index" class="lot-form">
+    <mat-card class="lot-card">
+      <mat-card-title>Lot {{i + 1}}</mat-card-title>
+      <form [formGroup]="lot">
+        <mat-form-field appearance="fill">
+          <mat-label>Code</mat-label>
+          <input matInput formControlName="code">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Operational Status</mat-label>
+          <mat-select formControlName="operationalStatus">
+            <mat-option *ngFor="let status of operationalStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Availability Status</mat-label>
+          <mat-select formControlName="availabilityStatus">
+            <mat-option *ngFor="let status of availabilityStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Security Status</mat-label>
+          <mat-select formControlName="securityStatus">
+            <mat-option *ngFor="let status of securityStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Product Name</mat-label>
+          <input matInput [value]="productForm.get('name').value" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Stock</mat-label>
+          <input matInput formControlName="quantity" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Expiration Date</mat-label>
+          <input matInput formControlName="expirationDate" type="date">
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" (click)="saveEverything()">Save Everything</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+  </div>
+</mat-card>

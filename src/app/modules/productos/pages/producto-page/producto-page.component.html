@@ -11,125 +11,24 @@
         <div *ngIf="selectOption === '/producto/editar'">
           <ng-container *ngTemplateOutlet="editProductZone"></ng-container>
         </div>
+        <div *ngIf="selectOption ==='/producto/all'">
+          <ng-container *ngTemplateOutlet="allProductZone"></ng-container>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <ng-template #newProductZone>
-
-  <div class="container">
-    <div class="form-and-empty">
-      <div class="form-container">
-        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-          <div>
-            <label for="id_producto">ID Producto</label>
-            <input id="id_producto" formControlName="id_producto" />
-          </div>
-
-          <div>
-            <label for="nombre">Nombre del Producto</label>
-            <input id="nombre" formControlName="nombre" />
-            <div *ngIf="productForm.get('nombre')?.invalid && productForm.get('nombre')?.touched">
-              Nombre es requerido
-            </div>
-          </div>
-
-          <div>
-            <label for="categoria">Categoría</label>
-            <select class="select-design" id="categoria" formControlName="categoria">
-              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-            </select>
-            <div *ngIf="productForm.get('categoria')?.invalid && productForm.get('categoria')?.touched">
-              Categoría es requerida
-            </div>
-          </div>
-
-          <div>
-            <label for="forma">Forma Farmacéutica</label>
-            <select class="select-design" id="forma" formControlName="forma">
-              <option *ngFor="let form of forms" [value]="form">{{ form }}</option>
-            </select>
-            <div *ngIf="productForm.get('forma')?.invalid && productForm.get('forma')?.touched">
-              Forma Farmacéutica es requerida
-            </div>
-          </div>
-
-          <div>
-            <label for="precio">Precio</label>
-            <input id="precio" type="number" formControlName="precio" />
-            <div *ngIf="productForm.get('precio')?.invalid && productForm.get('precio')?.touched">
-              Precio debe ser un número mayor o igual a 0
-            </div>
-          </div>
-
-          <div>
-            <label for="concentracion">Concentración</label>
-            <input id="concentracion" formControlName="concentracion" />
-            <div *ngIf="productForm.get('concentracion')?.invalid && productForm.get('concentracion')?.touched">
-              Concentración es requerida
-            </div>
-          </div>
-
-          <div>
-            <label for="presentacion">Presentación</label>
-            <input id="presentacion" formControlName="presentacion" />
-            <div *ngIf="productForm.get('presentacion')?.invalid && productForm.get('presentacion')?.touched">
-              Presentación es requerida
-            </div>
-          </div>
-
-          <div>
-            <label for="descripcion">Descripción</label>
-            <textarea id="descripcion" formControlName="descripcion"></textarea>
-            <div *ngIf="productForm.get('descripcion')?.invalid && productForm.get('descripcion')?.touched">
-              Descripción es requerida
-            </div>
-          </div>
-
-          <button type="submit" [disabled]="productForm.invalid">Agregar Producto</button>
-        </form>
-      </div>
-
-      <div class="empty-space">
-        <!-- Este espacio quedará vacío por ahora -->
-        a
-      </div>
-    </div>
-
-    <div class="table-container">
-      <h2 class="table-title">Productos Añadidos</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID Producto</th>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Forma</th>
-            <th>Precio</th>
-            <th>Concentración</th>
-            <th>Presentación</th>
-            <th>Descripción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products">
-            <td>{{ product.id_producto }}</td>
-            <td>{{ product.nombre }}</td>
-            <td>{{ product.categoria }}</td>
-            <td>{{ product.forma }}</td>
-            <td>{{ product.precio }}</td>
-            <td>{{ product.concentracion }}</td>
-            <td>{{ product.presentacion }}</td>
-            <td>{{ product.descripcion }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <app-producto-form></app-producto-form>
 
 </ng-template>
 
 <ng-template #editProductZone>
+  <app-search></app-search>
+  <app-editproducto></app-editproducto>
+</ng-template>
 
+<ng-template #allProductZone>
+  <app-prod-table-view></app-prod-table-view>
 </ng-template>

@@ -4,6 +4,7 @@ import { AdminPageComponent } from '../admin/pages/admin-page/admin-page.compone
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductoPageComponent } from '../productos/pages/producto-page/producto-page.component';
 import { TesthomeComponent } from './pages/home-test/testhome/testhome.component';
+import { roleGuard } from '../../core/guards/role.guard';
 
 
 
@@ -15,16 +16,15 @@ const routes: Routes = [
   }, {
     path: 'admin',
     component: AdminPageComponent,
-    loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
-  },
-  {
-    path: 'productos',
-    component: ProductoPageComponent,
-    loadChildren: () => import('../productos/productos.module').then(m => m.ProductosModule)
+    loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule),
+    canActivate: [roleGuard],
+    data: { expectedRole: 'ROLE_ADMIN' }
   },
   {
     path: 'almacen',
-    loadChildren: () => import('../productos/productos.module').then(m => m.ProductosModule)
+    loadChildren: () => import('../productos/productos.module').then(m => m.ProductosModule),
+    canActivate: [roleGuard],
+    data: { expectedRole: 'ROL_ALMACEN' }
   }
 ];
 

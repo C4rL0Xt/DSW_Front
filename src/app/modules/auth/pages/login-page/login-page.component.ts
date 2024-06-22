@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -6,7 +6,7 @@ import { HttpParams } from '@angular/common/http';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../../../../environments/environment';
 import { TokenService } from '../../services/token-service/token.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +14,10 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit, OnDestroy {
   authorize_uri = environment.authorize_uri;
+
+  isLoggedOut: boolean;
 
   isLogged: boolean;
   isAdmin: boolean;
@@ -31,30 +33,26 @@ export class LoginPageComponent {
 
   constructor(
     private tokenService: TokenService,
-    private router: Router
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.getLogged();
-    /*
-    console.log("este es ng oinit");
-    this.getLogged();
-    if (!this.isLogged) {
-      console.log("entro al if")
-      this.onLogin();
-    }
-    console.log("termina oninit")
-    if (this.onLogin) {
-      this.router.navigate(['/test']);
-    }
-    */
-    /*
+    this.tokenService.clear();
+  }
 
-    this.router.events.pipe(
-      filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.menu.getLogged();
-    });*/
+  ngOnDestroy(): void {
+
+  }
+
+  verifyLoggedOut(): void {
+    this.router.queryParams.subscribe((params: Params) => {
+      this.isLoggedOut = params['isLoggedOut'] === true;
+
+      if (this.isLoggedOut) {
+        console.log('El usuario ha cerrado sesión correctamente');
+      }
+    })
   }
 
   getLogged(): void {

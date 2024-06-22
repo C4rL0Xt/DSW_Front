@@ -6,7 +6,8 @@
 }
 
 .input-container {
-  margin-bottom: 21px; /* Establece el espacio entre los inputs */
+  margin-bottom: 21px;
+  /* Establece el espacio entre los inputs */
 }
 
 .main-content {
@@ -22,7 +23,8 @@
 .tab-container {
   display: flex;
   flex-direction: column;
-  margin: 20px 40px; /* Margen alrededor del tab-container */
+  margin: 20px 40px;
+  /* Margen alrededor del tab-container */
 }
 
 .tab-content {
@@ -47,8 +49,10 @@
 
 .form-container {
   flex: 1;
-  max-width: 290px; /*Es el ancho del form*/
-  padding: 20px; /*Es el ancho del espacio donde va el form*/
+  max-width: 290px;
+  /*Es el ancho del form*/
+  padding: 20px;
+  /*Es el ancho del espacio donde va el form*/
   border-radius: 12px;
   background-color: #f8f8f8;
   min-height: 560px;
@@ -56,9 +60,10 @@
 
 
 /* Container de la actualizacion*/
-.form-update{ 
+.form-update {
   width: 100%;
-  margin: 21px auto 0; /* 21 px es separación con el container de arriba */
+  margin: 21px auto 0;
+  /* 21 px es separación con el container de arriba */
   background: #f8f8f8;
   border-radius: 12px;
   min-height: 41%;
@@ -68,32 +73,44 @@
 /*Container del form en el container de actualizacion*/
 .container-solo-form {
   flex: 1;
-  max-width: 250px; /*Es el ancho del form*/
+  max-width: 250px;
+  /*Es el ancho del form*/
   margin-top: 4%;
-  margin-right: 10%; /*deja espacio a la derecha de este contenedor dentro del otro contenedor
+  margin-right: 10%;
+  /*deja espacio a la derecha de este contenedor dentro del otro contenedor
   padding: 20px; /*Es el ancho del espacio donde va el form*/
   border-radius: 12px;
   background-color: #f8f8f8;
 }
 
-.container-solo-form input{
-  padding: 10px;/*ancho de los inputs*/
+.container-solo-form input {
+  padding: 10px;
+  /*ancho de los inputs*/
   font-size: 15px;
-  width: 80%; /*Largo de los inputs*/
-  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
-  border: 1px solid #bbb; /* Borde de los campos */
-  border-radius: 8px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo de los campos */
+  width: 80%;
+  /*Largo de los inputs*/
+  box-sizing: border-box;
+  /* Asegura que el padding no desborde el contenedor */
+  border: 1px solid #bbb;
+  /* Borde de los campos */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  background-color: #ffffff;
+  /* Fondo de los campos */
   color: #333;
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  /* Transición suave */
 }
 
 /*Container de datos en el container de actualizacion*/
-.container-solo-labels-actualizacion{
+.container-solo-labels-actualizacion {
   display: flex;
-  flex-direction: column; /* Organiza los contenedores en una fila */
-  justify-content: space-between; /* Espacio entre los contenedores */
-  min-width: 350px; /*Es el ancho del form*/
+  flex-direction: column;
+  /* Organiza los contenedores en una fila */
+  justify-content: space-between;
+  /* Espacio entre los contenedores */
+  min-width: 350px;
+  /*Es el ancho del form*/
   margin-top: 4%;
   margin-left: 4%;
   border-radius: 12px;
@@ -101,11 +118,11 @@
   max-height: 200px;
 }
 
-.container-solo-labels-actualizacion label{
+.container-solo-labels-actualizacion label {
   margin-top: 0%;
 }
 
-h6{
+h6 {
   font-weight: bold;
   color: #080505;
   font-size: 16px;
@@ -117,7 +134,8 @@ h6{
   flex-direction: column;
   margin: 25px auto;
   width: 70%;
-  margin-top: 1px; /* Espacio que deja arriba */
+  margin-top: 1px;
+  /* Espacio que deja arriba */
   margin-bottom: 0px;
   background: #ffffff;
   border-radius: 12px;
@@ -129,7 +147,8 @@ h6{
   flex: 1;
   flex-direction: column;
   overflow-x: auto;
-  margin: 10px auto 0; /* Eliminar el margen inferior y ajustar según sea necesario */
+  margin: 10px auto 0;
+  /* Eliminar el margen inferior y ajustar según sea necesario */
   margin-top: 0px;
   width: 100%;
   background: #f8f8f8;
@@ -160,15 +179,18 @@ h6{
   font-size: 1.1em;
   color: #000000;
   margin-bottom: 10px;
-  margin-top: 20px; /* Ajustar la distancia desde arriba */
+  margin-top: 20px;
+  /* Ajustar la distancia desde arriba */
   margin-left: 20px;
 }
 
 
 .form-update form {
   display: flex;
-  flex-direction: row; /* Organiza los contenedores en una fila */
-  justify-content: space-between; /* Espacio entre los contenedores */
+  flex-direction: row;
+  /* Organiza los contenedores en una fila */
+  justify-content: space-between;
+  /* Espacio entre los contenedores */
 }
 
 form {
@@ -177,7 +199,8 @@ form {
 }
 
 div {
-  margin-bottom: 0px; /* espacio entre inputs cuando sale mensaje abajo*/
+  margin-bottom: 0px;
+  /* espacio entre inputs cuando sale mensaje abajo*/
 }
 
 label {
@@ -189,15 +212,22 @@ label {
 input,
 textarea,
 select {
-  padding: 10px;/*ancho de los inputs*/
+  padding: 10px;
+  /*ancho de los inputs*/
   font-size: 15px;
-  width: 92%; /*Largo de los inputs*/
-  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
-  border: 1px solid #bbb; /* Borde de los campos */
-  border-radius: 8px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo de los campos */
+  width: 92%;
+  /*Largo de los inputs*/
+  box-sizing: border-box;
+  /* Asegura que el padding no desborde el contenedor */
+  border: 1px solid #bbb;
+  /* Borde de los campos */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  background-color: #ffffff;
+  /* Fondo de los campos */
   color: #333;
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  /* Transición suave */
 }
 
 input:focus,
@@ -214,6 +244,7 @@ select:focus {
 .button-container {
   margin-top: 20px;
 }
+
 .button-container button {
   padding: 9px;
   width: 41%;
@@ -224,17 +255,21 @@ select:focus {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  margin-right: 18px; /* Espacio entre los botones */
+  margin-right: 18px;
+  /* Espacio entre los botones */
 }
 
 /*contenedor de botones en la actualizacion*/
 .button-containerAct {
   display: flex;
-  flex-direction: row; /* Organiza los contenedores en una fila */
-  justify-content: space-between; /* Espacio entre los contenedores */
+  flex-direction: row;
+  /* Organiza los contenedores en una fila */
+  justify-content: space-between;
+  /* Espacio entre los contenedores */
   margin-top: 20px;
   background-color: #f8f8f8;
 }
+
 .button-containerAct button {
   padding: 9px;
   width: 35%;
@@ -245,7 +280,8 @@ select:focus {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  margin-right: 60px; /* Espacio entre los botones */
+  margin-right: 60px;
+  /* Espacio entre los botones */
 }
 
 .button-container button:hover {
@@ -316,7 +352,7 @@ thead {
   /* Línea inferior gris */
 }
 
-th{
+th {
   max-width: 20px;
   padding: 12px;
   color: #ffffff;
@@ -324,14 +360,17 @@ th{
 
 }
 
-td{
+td {
   max-width: 20px;
   padding: 12px;
 
-  text-overflow: ellipsis; /* Muestra puntos suspensivos si el contenido es demasiado largo */
-  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
-  overflow: hidden; /* Oculta el contenido que se desborda */
-  
+  text-overflow: ellipsis;
+  /* Muestra puntos suspensivos si el contenido es demasiado largo */
+  white-space: nowrap;
+  /* Evita que el contenido se rompa en varias líneas */
+  overflow: hidden;
+  /* Oculta el contenido que se desborda */
+
 }
 
 tbody tr:nth-child(odd) {
@@ -343,7 +382,8 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: #e0e0e0; /* Fondo al pasar el mouse */
+  background-color: #e0e0e0;
+  /* Fondo al pasar el mouse */
 }
 
 
@@ -352,12 +392,13 @@ tbody tr:hover {
 /* Barra de deslizamiento - container de la tabla*/
 
 .table-scroll {
-  max-height: 250px; /*Maxima expansion de la tabla para abajo*/
+  max-height: 250px;
+  /*Maxima expansion de la tabla para abajo*/
   overflow-y: auto;
   margin-left: 3%;
   margin-right: 3%;
   background-color: #f8f8f8;
-  
+
 }
 
 /*INPUTS*/
@@ -366,7 +407,8 @@ input::placeholder {
   color: #cccaca;
 }
 
-.input-container div{
+.input-container div {
   color: rgb(235, 82, 82);
-  font-size: 13.5px; /*Tamaño de mensaje de requerido*/
+  font-size: 13.5px;
+  /*Tamaño de mensaje de requerido*/
 }

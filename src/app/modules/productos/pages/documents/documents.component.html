@@ -53,86 +53,94 @@
 
         <h2 class="table-title">Solicitudes de compra</h2>
 
-        <div class="empty-space">
-          <div class="table-scroll">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID Solicitud</th>
-                  <th>Producto</th>
-                  <th>Cantidad requerida</th>
-                  <th>Plazo entrega</th>
-                  <th>Fecha</th>
-                  <th>Identificacion</th>
-                </tr>
-              </thead>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>ID Solicitud</th>
+                <th>Producto</th>
+                <th>Cantidad requerida</th>
+                <th>Plazo entrega</th>
+                <th>Fecha</th>
+                <th>Identificacion</th>
+              </tr>
+            </thead>
 
-              <tbody>
-                <tr *ngFor="let solicitud of solicitudes" (click)="selectRow(solicitud)">
-                  <td>{{ solicitud.id_solicitud }}</td>
-                  <td>{{ solicitud.nombreProducto }}</td>
-                  <td>{{ solicitud.cantidadRequerida }}</td>
-                  <td>{{ solicitud.plazoEntrega }}</td>
-                  <td>{{ solicitud.fecha }}</td>
-                  <td>{{ solicitud.identificacion }}</td>
-                </tr>
-                <tr>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                </tr>
-                <tr>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                </tr>
-                <tr>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                </tr>
-                <tr>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                </tr>
-                <tr>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                  <td>Melani</td>
-                  <td>Adulta</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <tbody>
+              <tr *ngFor="let solicitud of solicitudes" (click)="selectRow(solicitud)">
+                <td>{{ solicitud.id_solicitud }}</td>
+                <td>{{ solicitud.nombreProducto }}</td>
+                <td>{{ solicitud.cantidadRequerida }}</td>
+                <td>{{ solicitud.plazoEntrega }}</td>
+                <td>{{ solicitud.fecha }}</td>
+                <td>{{ solicitud.identificacion }}</td>
+              </tr>
+              <tr>
+                <td>Melanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaai</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+              </tr>
+              <tr>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+              </tr>
+              <tr>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+              </tr>
+              <tr>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+              </tr>
+              <tr>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+                <td>Melani</td>
+                <td>Adulta</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
       </div>
       <div class="form-update">
-        <form>
-          <p>Actualizacion de solicitud</p>
-          <div>
-            <label for="id_producto" class="input-label">Cantidad</label>
-            <input class="input-act" id="id_producto" />
+        <form [formGroup]="updateSolicitudForm" (ngSubmit)="onUpdateSubmit()">
+          <div class="container-solo-labels-actualizacion">
+            <h6>Actualizacion de datos</h6>
+            <label>Id de Solicitud: {{ updateSolicitudForm.get('id_solicitud')?.value }}</label>
+            <label>Producto: {{ updateSolicitudForm.get('nombreProducto')?.value }}</label>
+            <div class="button-containerAct">
+              <button type="submit" [disabled]="updateSolicitudForm.invalid">Actualizar</button>
+              <button type="button" (click)="onUpdateCancel()">Cancelar</button>
+            </div>
           </div>
-          <div class="button-container">
-            <button>Actualizar</button>
+          <div class="container-solo-form">
+            <div class="input-container">
+              <label for="cantidadRequerida">Cantidad</label>
+              <input id="cantidadRequerida" formControlName="cantidadRequerida" />
+            </div>
+            <div class="input-container">
+              <label for="plazoEntrega">Fecha de Entrega</label>
+              <input id="plazoEntrega" formControlName="plazoEntrega" type="date" />
+            </div>
           </div>
-
         </form>
       </div>
     </div>

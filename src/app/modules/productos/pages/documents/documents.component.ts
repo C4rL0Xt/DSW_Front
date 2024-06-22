@@ -20,7 +20,7 @@ interface Solicitud {
 
 export class DocumentsComponent implements OnInit {
 
-  forms= [{
+  forms = [{
     label: 'Nombre del producto',
     input: 'nombreProducto',
     type: 'string'
@@ -38,12 +38,12 @@ export class DocumentsComponent implements OnInit {
   {
     label: 'Fecha',
     input: 'fecha',
-    type:  'date'
+    type: 'date'
   },
   {
     label: 'Id Asistente',
     input: 'identificacion',
-    type:  'string'
+    type: 'string'
   }
   ];
 
@@ -114,7 +114,7 @@ export class DocumentsComponent implements OnInit {
       // Actualizar el último ID de solicitud
       const currentIdNumber = parseInt(this.lastSolicitudId.slice(3)) + 1;
       this.lastSolicitudId = 'SOL' + currentIdNumber.toString().padStart(3, '0');
-      
+
       // Generar nuevo ID de solicitud y vaciar el formulario
       this.crearSolicitudForm.reset();
       this.generateSolicitudId();
@@ -122,7 +122,7 @@ export class DocumentsComponent implements OnInit {
       console.log('Formulario inválido');
     }
   }
-  
+
   onCancel(): void {
     this.crearSolicitudForm.reset();
     this.generateSolicitudId();

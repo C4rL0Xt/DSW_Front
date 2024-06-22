@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import anime from 'animejs/lib/anime.es.js';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,14 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(btoa('client:secret'))
+    anime({
+      targets: '.forbidden circle, .forbidden line',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 2000,
+      delay: (el, i) => i * 250,
+      direction: 'alternate',
+      loop: true
+    });
   }
 }

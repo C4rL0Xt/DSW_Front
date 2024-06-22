@@ -5,10 +5,13 @@ import { LoginPageComponent } from './modules/auth/pages/login-page/login-page.c
 import { AuthPageComponent } from './modules/auth/pages/auth-page/auth-page.component';
 import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 
+import { LogoutPageComponent } from './modules/auth/pages/logout-page/logout-page/logout-page.component';
+import { HomeComponent } from './components/home/home.component';
+
 const routes: Routes = [{
   path: 'home',
   component: HomePageComponent,
-  loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
 }, {
   path: 'main',
   component: LoginPageComponent,
@@ -16,6 +19,9 @@ const routes: Routes = [{
 }, {
   path: 'authorized', component: AuthPageComponent,
   loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+}, {
+  path: 'access-denied',
+  component: HomeComponent
 }, {
   path: '',
   redirectTo: '/main',

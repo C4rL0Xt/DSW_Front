@@ -40,10 +40,15 @@ export class TokenService {
   clear(): void {
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
+    localStorage.removeItem(ROLE);
   }
 
   isLogged(): boolean {
     return localStorage.getItem(ACCESS_TOKEN) != null;
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
   }
 
   isAdmin(): boolean {
